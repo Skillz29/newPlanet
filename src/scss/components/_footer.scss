@@ -1,0 +1,127 @@
+@use "../variables" as *;
+@use "../media" as *;
+
+
+.footer {
+  padding: 80px 0 32px;
+  background: $green;
+  background-image: url("/img/paw.svg");
+  background-repeat: no-repeat;
+  color: $light;
+  background-position: left 41vw bottom -75px;
+  background-size: 375px;
+
+  @include laptop {
+    padding-top: 50px;
+    background-size: 311px;
+  }
+
+  @include tablet {
+    background-position: right 46px bottom -45px;
+    background-size: 215px;
+    padding-top: 40px;
+  }
+
+  @include mobile {
+    background-position: right -30px bottom -30px;
+    background-size: 144px;
+    padding: 30px 0 24px;
+  }
+
+  &__container {
+    display: grid;
+    gap: 50px;
+    grid-template-areas:
+      "logo contacts"
+      'info contacts';
+
+
+    @include tablet {
+      gap: 82px 30px;
+    }
+
+    @include mobile {
+      gap: 0;
+      grid-template-areas:
+      "logo"
+      'contacts'
+      "info";
+    }
+
+  }
+
+  &__logo{
+    margin-bottom: 50px;
+    grid-area: logo;
+    width: 332px;
+
+    @include tablet {
+      width: 200px;
+     }
+
+    @include mobile {
+     margin-bottom: 32px;
+    }
+  }
+
+  &__info {
+    grid-area: info;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: $carrot;
+    }
+
+    @include mobile {
+      font-size: 12px;
+     }
+  }
+
+
+  &__copyright {
+    margin-bottom: 16px;
+  }
+
+  &__text {
+    margin-bottom: 3px;
+  }
+
+  &__item {
+    margin-bottom: 3px;
+    :last-child {
+      margin-bottom: 0;
+    }
+
+    @include mobile {
+      max-width: 184px;
+     }
+  }
+
+  &__contacts {
+    grid-area: contacts;
+    justify-self: end;
+    font-style: normal;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: $carrot;
+    }
+    @include mobile {
+      margin-bottom: 66px;
+      justify-self: start;
+     }
+  }
+  &__email {
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+
+  &__social-list{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+}

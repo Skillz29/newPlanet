@@ -1,0 +1,80 @@
+@use "../variables" as *;
+@use "../media" as *;
+
+.btn{
+  width: max-content;
+  background-color: $carrot;
+  border-radius: 40px;
+  padding: 16px 24px;
+  font-weight: 700;
+  text-align: center;
+  color: $light;
+  cursor: pointer;
+  outline: 1px solid transparent;
+  transition: background-color, transform, 0.3s, 0.1s ease-in-out;
+
+
+
+  &_arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 16px;
+      height: 16px;
+      background: url("/img/arrow-two-store.svg") no-repeat center/contain;
+    }
+  }
+
+  &:hover {
+    background: #e76b23;
+  }
+
+  &:focus-visible {
+    outline-color: $carrot ;
+  }
+
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &_green {
+    background-color: $green;
+
+    &:hover {
+      background: #00772f;
+    }
+
+    &:focus-visible {
+      outline-color: $carrot ;
+    }
+
+  }
+
+  &_purple {
+    background-color: $purple;
+
+    &:hover {
+      background:#981fd1;
+    }
+
+    &:focus-visible {
+      outline-color: $carrot ;
+    }
+
+  }
+
+  @include laptop {
+    padding: 16px 36px;
+  }
+
+  @include mobile {
+    padding: 11px 24px;
+  }
+
+}
